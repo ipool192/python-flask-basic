@@ -1,9 +1,8 @@
-from app import app 
-from app import configurations 
-import os
+from app import app
+from app.libraries.environment import envInt, envString
 
 if __name__ == "__main__":
     app.run(
-        host = os.getenv("APP_HOST"),
-        port = os.getenv("APP_PORT")
+        host = envString("APP_HOST"),
+        port = envInt("APP_PORT")
     )

@@ -1,14 +1,14 @@
 import logging
 from logging.handlers import RotatingFileHandler
-import os
+from app.libraries.environment import envInt, envString
 
 logger = logging.getLogger(__name__)
 handler = RotatingFileHandler(
-    os.getenv('ERR_LOG_LOCATION'),
-    maxBytes=os.getenv('ERR_LOG_MAXBYTES'),
-    backupCount=os.getenv('ERR_LOG_BACKUP_COUNT')
+    envString('ERR_LOG_LOCATION'),
+    maxBytes=envInt('ERR_LOG_MAXBYTES'),
+    backupCount=envInt('ERR_LOG_BACKUP_COUNT')
 )
-handler.setLevel(logging._checkLevel(os.getenv('ERR_LOG_LEVEL')))
+handler.setLevel(logging._checkLevel(envString('ERR_LOG_LEVEL')))
 handler.setFormatter(
     logging.Formatter('%(asctime)s [%(levelname)s] %(message)s %(pathname)s:%(lineno)d')
 )

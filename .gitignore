@@ -1,2 +1,9 @@
 .vscode/
 .env
+app/__pycache__/*
+app/controllers/__pycache__/*
+app/models/__pycache__/*
+app/configurations/__pycache__/*
+app/libraries/__pycache__/*
+app/infrastructures/__pycache__/*
+app/log/*

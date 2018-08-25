@@ -1,6 +1,7 @@
 from app import app
 from app.libraries.api_helper import response
-from app.controllers.HealthCheckController import HealthCheckController
+from app.controllers.healthcheck_controller import HealthCheckController
+from app.controllers.user_controller import UserController
 
 # Router Error #
 @app.errorhandler(400)
@@ -31,3 +32,7 @@ def internal_server_error(error):
 @app.route("/v1/healthcheck", methods=["GET"])
 def healthcheck():
     return HealthCheckController().health_check()
+
+@app.route("/v1/user/<int:id_user>", methods=["GET"])
+def get_user(id_user):
+    return UserController().get_user(id_user)

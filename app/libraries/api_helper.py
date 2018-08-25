@@ -11,7 +11,7 @@ MESSAGE_ERROR = {
     500: 'Internal Server Error.',
     1001: 'Error DB Connection.',
     1002: 'Invalid Query.',
-    1003: 'Under Maintenance.',
+    1003: 'Data not found.',
     1004: 'Token Mismatch.',
     1005: 'Not Authorized.',
     1006: 'Invalid Parameter.',

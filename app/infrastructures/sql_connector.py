@@ -1,15 +1,15 @@
 import pymysql
-import os
+from app.libraries.environment import envString, envInt
 from app.logger import logger
 
 def connect():
     try:
         connection = pymysql.connect(
-            host = os.getenv("READ_HOST"),
-            port = os.getenv("READ_PORT"),
-            user = os.getenv("READ_USERNAME"),
-            password = os.getenv("READ_PASSWORD"),
-            db = os.getenv("READ_DATABASE"),
+            host = envString("DB_HOST"),
+            port = envInt("DB_PORT"),
+            user = envString("DB_USERNAME"),
+            password = envString("DB_PASSWORD"),
+            db = envString("DB_DATABASE"),
             cursorclass=pymysql.cursors.DictCursor
         )
         return connection
